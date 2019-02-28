@@ -1,0 +1,48 @@
+<div *ngIf="auth.user$ | async as user" class="row">
+
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ user.photoURL }}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title text-secondary text-center">
+                    {{ user.displayName | uppercase }}
+                </h5>
+
+                <p class="card-text">Cliquer sur afficher le calendrier pour voir les elements du calendrier.</p>
+
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button (click)="auth.getCalendar()" type="button" class="btn btn-secondary">Afficher calendrier
+                    </button>
+                    <button (click)="auth.logout()" type="button" class="btn btn-secondary">Déconnexion</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="row">
+            <div *ngFor="let item of auth.calendarItems" class="col-md-6">
+                <div class="border rounded bg-primary p-2">
+                    <h2 class="text-white">{{ item.summary }} <span class="badge badge-light">{{ item.status }}</span></h2>
+                    <em class="text-white-50">Created {{ item.created }}</em>
+                    <p>{{ item.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="auth.user$ | async" class="col-xs-12">
+        <button (click)="auth.insertEvent()" class="btn btn-dark">Add Event</button>
+    </div>
+</div>
+
+
+
+<!--<button (click)="auth.login()" class="button is-danger">Login with Google</button>-->
+
+
+
+
+
+
