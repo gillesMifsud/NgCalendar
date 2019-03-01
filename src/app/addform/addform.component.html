@@ -1,0 +1,51 @@
+<div *ngIf="auth.user$ | async" class="row">
+        <div class="col-12 col-md-7 mt-5">
+            <mat-card>
+                <h2>Add event</h2>
+
+                <form [formGroup]="addEventForm" (ngSubmit)="onSubmit()">
+
+                    <mat-form-field color="dark">
+                        <input
+                                matInput
+                                placeholder="Summary"
+                                formControlName="summary"
+                                type="text"
+                                id="summary"
+                        >
+                        <mat-error *ngIf="addEventForm.hasError('required')">
+                            Summary is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field color="dark">
+                            <textarea
+                                    matInput
+                                    placeholder="Description"
+                                    formControlName="description"
+                                    type="text"
+                                    id="description"
+                            ></textarea>
+                        <mat-error *ngIf="addEventForm.hasError('required')">
+                            Description is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <div>
+                        <button mat-raised-button color="primary"
+                                type="submit"
+                                [disabled]="!addEventForm.valid"
+                        >Save</button>
+                        <button mat-raised-button color="primary"
+                                type="button"
+                                (click)="onCancel()"
+                        >Cancel</button>
+                    </div>
+
+                </form>
+            </mat-card>
+        </div>
+
+
+    <!--<button (click)="auth.insertEvent()" class="btn btn-dark">Add Event</button>-->
+</div>

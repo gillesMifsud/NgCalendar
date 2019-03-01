@@ -11,6 +11,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
 
 import {firebase} from '../environments/dev';
+import {AddformComponent} from './addform/addform.component';
+import {ReactiveFormsModule} from '@angular/forms';
 // Add your project credentials
 // Then use it in the imports section below
 
@@ -18,12 +20,14 @@ import {firebase} from '../environments/dev';
     declarations: [
         AppComponent,
         HeaderComponent,
-        HomeComponent
+        HomeComponent,
+        AddformComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,
+        ReactiveFormsModule,
         AngularFireModule.initializeApp(firebase),
         AngularFireAuthModule,
         SharedModule

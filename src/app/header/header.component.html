@@ -1,28 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary mb-4">
-    <a class="navbar-brand" href="#">NgCalendar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mat-elevation-z6">
+
+    <a class="navbar-brand font-weight-bold" href="#">NgCalendar</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarColor02" aria-controls="navbarColor02"
+            aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse" id="navbarColor02">
 
         <ul class="navbar-nav ml-auto" *ngIf="auth.user$ | async as user; else elseBlock">
 
-            <li class="nav-item dropdown" appDropdown #r="appDropDown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ user.displayName | lowercase }}
-                </a>
-                <div [ngClass]="{'show':r.isOpen}" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a (click)="auth.logout()" class="dropdown-item" href="#">Déconnexion</a>
-                </div>
+            <li class="nav-item">
+                <mat-menu #loggedMenu="matMenu">
+                    <button (click)="auth.logout()" mat-menu-item>Deconnexion</button>
+                </mat-menu>
+
+                <button mat-button [matMenuTriggerFor]="loggedMenu" class="nav-link">
+                    <mat-icon>person</mat-icon>
+                    <span>{{ user.displayName | lowercase }}</span>
+                </button>
             </li>
         </ul>
 
         <ng-template #elseBlock>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a (click)="auth.login()" class="nav-link" href="#">Connexion</a>
+                    <button mat-button (click)="auth.login()" class="nav-link">
+                        <mat-icon>account_circle</mat-icon>
+                        <span>Connexion</span>
+                    </button>
                 </li>
             </ul>
         </ng-template>

@@ -1,7 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {HomeComponent} from './home/home.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', redirectTo: '', pathMatch: 'full'}, // Redirect only if the full path is empty
+  {path: '', component: HomeComponent},
+  // { path: 'users', component: UsersComponent, children: [
+  //         { path: ':id/:name', component: UserComponent }
+  //     ] },
+  // {
+  //     path: 'servers',
+  //     canActivateChild: [AuthGuard],
+  //     component: ServersComponent,
+  //     children: [
+  //         { path: ':id', component: ServerComponent, resolve: {server: ServerResolver} },
+  //         { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard] }
+  //     ] },
+  // { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
+  // { path: '**', redirectTo: '/not-found' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

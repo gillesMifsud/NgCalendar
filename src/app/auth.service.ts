@@ -9,8 +9,6 @@ declare var gapi: any;
     providedIn: 'root'
 })
 export class AuthService {
-
-
     user$: Observable<firebase.User>;
     calendarItems: any[];
 
@@ -75,21 +73,30 @@ export class AuthService {
 
     }
 
-    async insertEvent() {
-        const insert = await gapi.client.calendar.events.insert({
-            calendarId: 'primary',
-            start: {
-                dateTime: hoursFromNow(2),
-                timeZone: 'America/Los_Angeles'
-            },
-            end: {
-                dateTime: hoursFromNow(3),
-                timeZone: 'America/Los_Angeles'
-            },
-            summary: 'Have Fun!!!',
-            description: 'Do some cool stuff and have a fun time doing it'
-        });
+    getCalendarItems() {
+        return this.calendarItems;
+    }
 
+    // async insertEvent() {
+    //     const insert = await gapi.client.calendar.events.insert({
+    //         calendarId: 'primary',
+    //         start: {
+    //             dateTime: hoursFromNow(2),
+    //             timeZone: 'America/Los_Angeles'
+    //         },
+    //         end: {
+    //             dateTime: hoursFromNow(3),
+    //             timeZone: 'America/Los_Angeles'
+    //         },
+    //         summary: 'Have Fun!!!',
+    //         description: 'Do some cool stuff and have a fun time doing it'
+    //     });
+    //
+    //     await this.getCalendar();
+    // }
+
+    async insertEvent(event) {
+        const insert = await gapi.client.calendar.events.insert(event);
         await this.getCalendar();
     }
 
