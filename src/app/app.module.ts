@@ -7,35 +7,28 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {HeaderComponent} from './header/header.component';
 import {HomeComponent} from './home/home.component';
-import {DropdownDirective} from './shared/dropdown.directive';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SharedModule} from './shared/shared.module';
 
+import {firebase} from '../environments/dev';
 // Add your project credentials
 // Then use it in the imports section below
-const firebase = {
-    apiKey: 'AIzaSyCD0TlJV9aXQmIZVBU4qjrQoungk4G9cfY',
-    authDomain: 'ngcal-1551340470225.firebaseapp.com',
-    databaseURL: 'https://ngcal-1551340470225.firebaseio.com',
-    projectId: 'ngcal-1551340470225',
-    storageBucket: 'ngcal-1551340470225.appspot.com',
-    messagingSenderId: '697704073656'
-};
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
-        HomeComponent,
-        DropdownDirective
+        HomeComponent
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         AngularFireModule.initializeApp(firebase),
         AngularFireAuthModule,
+        SharedModule
     ],
-    exports: [
-        DropdownDirective
-    ],
+    exports: [],
     providers: [],
     bootstrap: [AppComponent]
 })
