@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {auth} from 'firebase/app';
+import * as firebase from 'firebase';
 
 declare var gapi: any;
 

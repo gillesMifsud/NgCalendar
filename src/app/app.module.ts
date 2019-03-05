@@ -13,6 +13,7 @@ import {SharedModule} from './shared/shared.module';
 import {firebase} from '../environments/dev';
 import {AddformComponent} from './addform/addform.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { WikipediaComponent } from './wikipedia/wikipedia/wikipedia.component';
 // Add your project credentials
 // Then use it in the imports section below
 
@@ -21,7 +22,8 @@ import {ReactiveFormsModule} from '@angular/forms';
         AppComponent,
         HeaderComponent,
         HomeComponent,
-        AddformComponent
+        AddformComponent,
+        WikipediaComponent
     ],
     imports: [
         BrowserModule,
