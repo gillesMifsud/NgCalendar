@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {WikipediaComponent} from './wikipedia/wikipedia/wikipedia.component';
+import {CalendarComponent} from './google/calendar/calendar.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'}, // Redirect only if the full path is empty
   {path: 'home', component: HomeComponent},
   {path: 'wikipedia', component: WikipediaComponent},
+  {path: 'google/calendar', component: CalendarComponent},
   // { path: 'users', component: UsersComponent, children: [
   //         { path: ':id/:name', component: UserComponent }
   //     ] },

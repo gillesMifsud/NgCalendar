@@ -12,8 +12,11 @@ import {SharedModule} from './shared/shared.module';
 
 import {firebase} from '../environments/dev';
 import {AddformComponent} from './addform/addform.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { WikipediaComponent } from './wikipedia/wikipedia/wikipedia.component';
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
+import {WikipediaService} from './wikipedia/wikipedia/wikipedia.service';
+import { CalendarComponent } from './google/calendar/calendar.component';
 // Add your project credentials
 // Then use it in the imports section below
 
@@ -23,19 +26,23 @@ import { WikipediaComponent } from './wikipedia/wikipedia/wikipedia.component';
         HeaderComponent,
         HomeComponent,
         AddformComponent,
-        WikipediaComponent
+        WikipediaComponent,
+        CalendarComponent
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
+        HttpClientJsonpModule,
         BrowserAnimationsModule,
         AppRoutingModule,
         ReactiveFormsModule,
+        FormsModule,
         AngularFireModule.initializeApp(firebase),
         AngularFireAuthModule,
         SharedModule
     ],
     exports: [],
-    providers: [],
+    providers: [WikipediaService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

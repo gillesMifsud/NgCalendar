@@ -1,7 +1,15 @@
 import {NgModule} from '@angular/core';
 import {DropdownDirective} from './dropdown.directive';
 import {CommonModule} from '@angular/common';
-import {MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule} from '@angular/material';
+import {
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule, MatProgressSpinnerModule
+} from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -14,6 +22,8 @@ import {MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatIn
         MatIconModule,
         MatCardModule,
         MatFormFieldModule,
+        MatListModule,
+        MatProgressSpinnerModule,
         MatInputModule
     ],
     exports: [
@@ -25,6 +35,8 @@ import {MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatIn
         MatIconModule,
         MatCardModule,
         MatFormFieldModule,
+        MatListModule,
+        MatProgressSpinnerModule,
         MatInputModule
     ]
 })
